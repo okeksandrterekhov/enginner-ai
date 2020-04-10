@@ -59,13 +59,14 @@ function App() {
       <MaterialTable
         columns={[
           { title: 'Title', field: 'title' },
-          { title: 'URL', field: 'url' },
-          { title: 'Created', field: 'created_at' },
-          { title: 'Autor', field: 'author' },
+          { title: 'URL', field: 'url', filtering: false },
+          { title: 'Created', field: 'created_at', searchable: false },
+          { title: 'Autor', field: 'author', filtering: false },
         ]}
         data={hits}
         options={{
           paging: false,
+          filtering: true,
         }}
         onRowClick={(event, row) => {
           setRow(row);
