@@ -44,7 +44,7 @@ function App() {
         .then((response) => {
           setHits((prevHits) => [...prevHits, ...response.data.hits]);
 
-          if (page > response.data.nbPages - 1) {
+          if (page + 1 > response.data.nbPages) {
             setMore(false);
             clearInterval(timer.current);
           } else {
@@ -60,7 +60,7 @@ function App() {
   useEffect(() => {
     timer.current = setInterval(() => {
       setPage((prevPage) => prevPage + 1);
-    }, 1000);
+    }, 10000);
 
     return () => {
       clearInterval(timer.current);
